@@ -1,0 +1,33 @@
+name: kidguard
+description: A feature-rich Android Parental Control application using MVVM architecture.
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # State Management (MVVM Architecture)
+  provider: ^6.1.1
+
+  # Live Camera & Audio / Screen Mirroring Streaming
+  flutter_webrtc: ^0.9.48
+
+  # Permissions handling for Call logs, Camera, Storage, etc.
+  permission_handler: ^11.3.1
+
+  # Local Database to store intercepted messages and notifications
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
