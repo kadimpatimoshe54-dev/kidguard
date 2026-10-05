@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'viewmodels/monitoring_viewmodel.dart';
+import 'views/dashboard_view.dart';
 
 void main() {
   runApp(const KidGuardApp());
@@ -9,31 +12,20 @@ class KidGuardApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'KidGuard',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const KidGuardHome(),
-    );
-  }
-}
-
-class KidGuardHome extends StatelessWidget {
-  const KidGuardHome({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('KidGuard Parental Control'),
-      ),
-      body: const Center(
-        child: Text(
-          'Welcome to KidGuard (MVVM Setup)',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => MonitoringViewModel()),
+      ],
+      child: MaterialApp(
+        title: 'KidGuard Parental Control',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          useMaterial3: true,
         ),
+        home: const DashboardView(),
       ),
     );
   }
 }
+  
